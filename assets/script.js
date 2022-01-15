@@ -18,26 +18,26 @@ function saveData(){
     console.log(toDoListInput);
 }
 
-//Change background color to reflect past, present, and future
-
-//Set Current Time
-let time = moment().format('LT');
-console.log(time);
-
-console.log(moment('8:00 AM', 'hh:mm a'))
-//loop through all the children of the container divs , check the name, and 
-
-
-
+//set current hour to schedule hour 
 
 function toDoBackground (){
-    if (moment().isBefore(time)) {
-        textBackground.classList.add('past');
-    }
-    else if (moment().isAfter(time)){
-        textBackground.classList.add('future');
-    }
-    else {
-        textBackground.classList.add('present');
-    }
+    const currentHour = moment().hour();
+    console.log(currentHour);
+
+    $('.time-block').each(function(){
+       let rowHour = parseInt($(this).attr('id'))
+       console.log(rowHour);
+
+       if (rowHour === currentHour){
+           $(this).children('textarea').addClass('present')
+       }
+       else if (rowHour < currentHour){
+            $(this).children('textarea').addClass('past')
+       }
+       else {
+        $(this).children('textarea').addClass('future')
+   }
+    })
 }
+toDoBackground()
+
