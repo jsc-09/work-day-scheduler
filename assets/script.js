@@ -2,21 +2,36 @@
 let todayDate = moment().format("dddd, MMMM DD, YYYY");
 $("#currentDay").text(todayDate);
 
-let toDoListInput = document.getElementById('#to-do-list')
 let saveBtn = document.querySelector('.saveBtn')
 
 let textBackground = document.querySelector('.text-background')
 //Step 1: Save text content into local storage when save button is save.
 //Step 2: Add color for past (grayed out), present (red), future (green)
 
-saveBtn.addEventListener('click', saveData)
+saveBtn.addEventListener('click', saveTask)
 
-let storedData = [] 
+//Add local storage store tasks
 
-function saveData(){
-    localStorage.setItem('toDoListInput', toDoListInput.value);
-    console.log(toDoListInput);
+let tasksToday = []
+
+function saveTask () {
+    let taskInput = $('input[name="task-input').val();
+    console.log(taskInput);
+    console.log(rowHour);
+    //Store Task in Local Storage
+
+    const taskByHour = {
+        hour: rowHour,
+        task: taskInput
+    }
+    console.log(taskByHour);
+
+    tasksToday.push(taskByHour);
+    localStorage.setItem('tasksToday', JSON.stringify(tasksToday));
+
+    saveTask()
 }
+
 
 //set current hour to schedule hour 
 
