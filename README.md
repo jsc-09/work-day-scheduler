@@ -8,4 +8,4 @@ The work day scheduler spans 10 hours per day.
 Each task can be inputted into the field and saved onto local storage. 
 The task can be edited and cleared out. 
 
-![Screenshot of site.] (/images/work-day-scheduler-sample.png)
+![Screenshot of site](/images/work-day-scheduler-sample.png)
