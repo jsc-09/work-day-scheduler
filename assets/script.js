@@ -2,11 +2,9 @@
 let todayDate = moment().format("dddd, MMMM DD, YYYY");
 $("#currentDay").text(todayDate);
 
-
 let textBackground = document.querySelector('.text-background')
 //Step 1: Save text content into local storage when save button is save.
 //Step 2: Add color for past (grayed out), present (red), future (green)
-
 
 /*
 saveBtn.forEach(button => {
@@ -18,9 +16,8 @@ $('.saveBtn').each(function(){
     $(this).click(saveTask);
 })
 
-
 //Saving each task by hour
-function saveTask(event) {
+function saveTask() {
     // $(event.target).parent()
     console.log($(this).parent());
 
@@ -29,7 +26,6 @@ function saveTask(event) {
     console.log(taskHour);
     console.log(taskTask)
 
-    
     taskByHour[taskHour] = taskTask
     
     console.log(taskByHour);
@@ -39,11 +35,17 @@ function saveTask(event) {
 
  //Retriving each task by hour
  function init() {
-     let storedTask = JSON.parse(localStorage.getItem('taskByHour'));
-     console.log(storedTask)
+     taskByHour = JSON.parse(localStorage.getItem('taskByHour'));
+     console.log(taskByHour);
+
+     $('.time-block').each(function(){
+        let rowHour = parseInt($(this).attr('id'))
+        
+        if (taskByHour[rowHour] != null) {
+            $(this).children('textarea').val(taskByHour[rowHour])
+        }
+     })
  }
-
-
 
 //set current hour to schedule hour 
 
