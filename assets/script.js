@@ -6,10 +6,6 @@ let textBackground = document.querySelector('.text-background')
 //Step 1: Save text content into local storage when save button is save.
 //Step 2: Add color for past (grayed out), present (red), future (green)
 
-/*
-saveBtn.forEach(button => {
-    button.addEventListener("click",saveTask)
-})*/
 let taskByHour = {}
 
 $('.saveBtn').each(function(){
@@ -18,7 +14,6 @@ $('.saveBtn').each(function(){
 
 //Saving each task by hour
 function saveTask() {
-    // $(event.target).parent()
     console.log($(this).parent());
 
     let taskHour = $(this).parent().attr("id");
@@ -47,7 +42,8 @@ function saveTask() {
      })
  }
 
-//set current hour to schedule hour 
+
+//set current hour to schedule hour & change background color.
 
 function toDoBackground (){
     const currentHour = moment().hour();
